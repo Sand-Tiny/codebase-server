@@ -16,10 +16,16 @@
 	<name>codebase</name>
 	<description>Demo project for Spring Boot</description>
 
+    <modules>
+        <module>codebase-api</module>
+        <module>codebase-service</module>
+        <module>codebase-client</module>
+    </modules>
+    
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
-
+<!--
 	<dependencyManagement>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -37,7 +43,6 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencyManagement>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -77,11 +82,5 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-
-
-	<modules>
-		<module>codebase-api</module>
-		<module>codebase-service</module>
-		<module>codebase-client</module>
-	</modules>
+-->
 </project>
