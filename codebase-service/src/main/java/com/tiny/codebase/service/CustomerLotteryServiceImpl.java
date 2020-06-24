@@ -7,12 +7,11 @@ package com.tiny.codebase.service;
 
 import java.util.List;
 
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import com.tiny.codebase.dao.CustomerLotteryDao;
 import com.tiny.codebase.entity.CustomerLottery;
-import com.tiny.codebase.service.CustomerLotteryService;
 
 /**
  * 用户奖券 服务 
@@ -20,9 +19,9 @@ import com.tiny.codebase.service.CustomerLotteryService;
  * @author Tiny.Liu
  * @version 1.0
  */
-@Service
+@DubboService(interfaceClass = CustomerLotteryService.class)
 public class CustomerLotteryServiceImpl implements CustomerLotteryService {
-    
+
     @Autowired
     private CustomerLotteryDao customerLotteryDao;
     
