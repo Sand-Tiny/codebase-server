@@ -19,7 +19,7 @@ import com.tiny.codebase.entity.CustomerLottery;
  * @author Tiny.Liu
  * @version 1.0
  */
-@DubboService(interfaceClass = CustomerLotteryService.class)
+@DubboService(interfaceClass = CustomerLotteryService.class, version="1.0.0")
 public class CustomerLotteryServiceImpl implements CustomerLotteryService {
 
     @Autowired
