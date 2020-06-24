@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tiny.codebase.dao.CustomerLotteryDao">
+
+    <resultMap id="customerLottery" type="com.tiny.codebase.entity.CustomerLottery">
+        <result property="customerLotteryId"              column="customer_lottery_id"/>
+        <result property="activityId"                     column="activity_id"/>
+        <result property="status"                         column="status"/>
+        <result property="lotteryId"                      column="lottery_id"/>
+        <result property="lotteryMoneyId"                 column="lottery_money_id"/>
+        <result property="money"                          column="money"/>
+        <result property="usedMoney"                      column="used_money"/>
+        <result property="usableMoney"                    column="usable_money"/>
+        <result property="lockedMoney"                    column="locked_money"/>
+        <result property="customerId"                     column="customer_id"/>
+        <result property="mobile"                         column="mobile"/>
+        <result property="effectiveTimeStart"             column="effective_time_start"/>
+        <result property="effectiveTimeEnd"               column="effective_time_end"/>
+        <result property="createdDate"                    column="created_date"/>
+        <result property="updatedDate"                    column="updated_date"/>
+
+    </resultMap>
+
+    <insert id="add" parameterType="com.tiny.codebase.entity.CustomerLottery" useGeneratedKeys="true" keyProperty="customerLotteryId">
+       insert into
+            customer_lottery
+        (
+            `activity_id`,
+            `status`,
+            `lottery_id`,
+            `lottery_money_id`,
+            `money`,
+            `used_money`,
+            `usable_money`,
+            `locked_money`,
+            `customer_id`,
+            `mobile`,
+            `effective_time_start`,
+            `effective_time_end`,
+            `created_date`,
+            `updated_date`
+        )
+       values
+        (
+            #{activityId},
+            #{status},
+            #{lotteryId},
+            #{lotteryMoneyId},
+            #{money},
+            #{usedMoney},
+            #{usableMoney},
+            #{lockedMoney},
+            #{customerId},
+            #{mobile},
+            #{effectiveTimeStart},
+            #{effectiveTimeEnd},
+            #{createdDate},
+            #{updatedDate}
+        )
+    </insert>
+
+    <insert id="addBatch">
+       insert into
+            customer_lottery
+        (
+            `activity_id`,
+            `status`,
+            `lottery_id`,
+            `lottery_money_id`,
+            `money`,
+            `used_money`,
+            `usable_money`,
+            `locked_money`,
+            `customer_id`,
+            `mobile`,
+            `effective_time_start`,
+            `effective_time_end`,
+            `created_date`,
+            `updated_date`
+        )
+       values
+       <foreach collection="customerLotterys" item="customerLottery" separator=",">
+        (
+            #{customerLottery.activityId},
+            #{customerLottery.status},
+            #{customerLottery.lotteryId},
+            #{customerLottery.lotteryMoneyId},
+            #{customerLottery.money},
+            #{customerLottery.usedMoney},
+            #{customerLottery.usableMoney},
+            #{customerLottery.lockedMoney},
+            #{customerLottery.customerId},
+            #{customerLottery.mobile},
+            #{customerLottery.effectiveTimeStart},
+            #{customerLottery.effectiveTimeEnd},
+            #{customerLottery.createdDate},
+            #{customerLottery.updatedDate}
+        )
+        </foreach>
+    </insert>
+    
+    <update id="update" parameterType="com.tiny.codebase.entity.CustomerLottery">
+        update
+            customer_lottery
+        <set>
+            `activity_id` = #{activityId},
+            `status` = #{status},
+            `lottery_id` = #{lotteryId},
+            `lottery_money_id` = #{lotteryMoneyId},
+            `money` = #{money},
+            `used_money` = #{usedMoney},
+            `usable_money` = #{usableMoney},
+            `locked_money` = #{lockedMoney},
+            `customer_id` = #{customerId},
+            `mobile` = #{mobile},
+            `effective_time_start` = #{effectiveTimeStart},
+            `effective_time_end` = #{effectiveTimeEnd},
+            `created_date` = #{createdDate},
+            `updated_date` = #{updatedDate}
+        </set>
+        where
+            `customer_lottery_id` = #{customerLotteryId}
+    </update>
+    
+    <select id="get" resultMap="customerLottery">
+        select
+            `customer_lottery_id`,
+            `activity_id`,
+            `status`,
+            `lottery_id`,
+            `lottery_money_id`,
+            `money`,
+            `used_money`,
+            `usable_money`,
+            `locked_money`,
+            `customer_id`,
+            `mobile`,
+            `effective_time_start`,
+            `effective_time_end`,
+            `created_date`,
+            `updated_date`
+        from
+            customer_lottery
+        where
+            `customer_lottery_id`=#{customerLotteryId}
+    </select>
+    
+    <select id="query" resultMap="customerLottery">
+        select
+            `customer_lottery_id`,
+            `activity_id`,
+            `status`,
+            `lottery_id`,
+            `lottery_money_id`,
+            `money`,
+            `used_money`,
+            `usable_money`,
+            `locked_money`,
+            `customer_id`,
+            `mobile`,
+            `effective_time_start`,
+            `effective_time_end`,
+            `created_date`,
+            `updated_date`
+        from
+            customer_lottery
+        <where>
+            <if test="customerLotteryId != null">
+                and `customer_lottery_id` = #{customerLotteryId}
+            </if>
+            <if test="activityId != null">
+                and `activity_id` = #{activityId}
+            </if>
+            <if test="status != null">
+                and `status` = #{status}
+            </if>
+            <if test="lotteryId != null">
+                and `lottery_id` = #{lotteryId}
+            </if>
+            <if test="lotteryMoneyId != null">
+                and `lottery_money_id` = #{lotteryMoneyId}
+            </if>
+            <if test="money != null">
+                and `money` = #{money}
+            </if>
+            <if test="usedMoney != null">
+                and `used_money` = #{usedMoney}
+            </if>
+            <if test="usableMoney != null">
+                and `usable_money` = #{usableMoney}
+            </if>
+            <if test="lockedMoney != null">
+                and `locked_money` = #{lockedMoney}
+            </if>
+            <if test="customerId != null">
+                and `customer_id` = #{customerId}
+            </if>
+            <if test="mobile != null">
+                and `mobile` = #{mobile}
+            </if>
+            <if test="effectiveTimeStart != null">
+                and `effective_time_start` = #{effectiveTimeStart}
+            </if>
+            <if test="effectiveTimeEnd != null">
+                and `effective_time_end` = #{effectiveTimeEnd}
+            </if>
+            <if test="createdDate != null">
+                and `created_date` = #{createdDate}
+            </if>
+            <if test="updatedDate != null">
+                and `updated_date` = #{updatedDate}
+            </if>
+        </where>
+    </select>
+    
+    <delete id="delete">
+        delete from
+            customer_lottery
+        where
+            `customer_lottery_id` = #{customerLotteryId}
+    </delete>
+</mapper>
