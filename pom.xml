@@ -20,6 +20,7 @@
 		<module>codebase-api</module>
 		<module>codebase-service</module>
 		<module>codebase-client</module>
+		<module>codebase-common</module>
 	</modules>
 
 	<properties>
