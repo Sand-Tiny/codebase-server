@@ -1,4 +1,4 @@
-package com.tiny.codebase.common;
+package com.tiny.codebase.common.util;
 
 import java.util.Calendar;
 import java.util.Date;
