@@ -59,19 +59,19 @@ public class CustomerLottery implements Serializable {
     @ApiModelProperty(value = "中奖用户手机号")
     private String mobile;
     
-    @JsonFormat(pattern = "yyyy-MM-DD HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @ApiModelProperty(value = "有效期的开始时间，精确到秒")
     private Date effectiveTimeStart;
     
-    @JsonFormat(pattern = "yyyy-MM-DD HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @ApiModelProperty(value = "有效期的结束时间，精确到秒")
     private Date effectiveTimeEnd;
     
-    @JsonFormat(pattern = "yyyy-MM-DD HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @ApiModelProperty(value = "创建时间,该记录如果是中奖则为中奖时间，该记录为使用则为使用时间，该记录为过期，则为过期时间")
     private Date createdDate;
     
-    @JsonFormat(pattern = "yyyy-MM-DD HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @ApiModelProperty(value = "最近更新时间")
     private Date updatedDate;
 }
