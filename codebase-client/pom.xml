@@ -17,7 +17,7 @@
         <dubbo.version>2.7.7</dubbo.version>
         <zookeeper.version>3.4.7</zookeeper.version>
         <dict.version>0.0.1-SNAPSHOT</dict.version>
-        <pagehelper.version>5.1.8</pagehelper.version>
+        <pagehelper.version>5.3.1</pagehelper.version>
     </properties>
 
 	<dependencies>
